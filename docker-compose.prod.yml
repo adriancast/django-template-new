@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   web:
-    image: ghcr.io/adriancast/test-ci/app:latest
+    image: ghcr.io/<user_organization>/<repository_name>/app:latest
     command: gunicorn config.wsgi:application --bind 0.0.0.0:8000
     volumes:
       - static_volume:/home/app/web/staticfiles
@@ -21,7 +21,7 @@ services:
       - .env.prod.db
   nginx-proxy:
     container_name: nginx-proxy
-    image: ghcr.io/adriancast/test-ci/nginx:latest
+    image: ghcr.io/<user_organization>/<repository_name>/nginx:latest
     restart: always
     ports:
       - 443:443
